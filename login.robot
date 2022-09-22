@@ -80,22 +80,31 @@ Buy Lower Contract
     Press Keys   //input[@class='dc-input__field']    CTRL+A+DEL    4
 
     # Payout: 15.50 USD
-    Wait Until Page Contains Element    //input[@id='dt_amount_input']    10
+    Click Element    //button[@id='dc_payout_toggle_item']
     Press Keys   //input[@id='dt_amount_input']    CTRL+A+DEL    15.50
 
     # Lower
-    # Wait Until Element Is Enabled    ${lower_button}    30
-    # Click Element    ${lower_button}
+    Wait Until Element Is Enabled    ${lower_button}    30
+    Click Element    ${lower_button}
 
 # Task 4 Check Relative Barrier
 Check Relative Barrier
-# Underlying: AUD/USD
-# Contract: Lower
-# Duration: 2 Days
-# Barrier (to generate error)
-# Payout: 10 USD
-# error message should appear
-# Lower button should be disabled
+    # Underlying: AUD/USD
+    # Contract: Lower
+    # Duration: 4 Days
+    # Barrier (to generate error) 
+    Wait Until Page Contains Element    //input[@id='dt_barrier_1_input']
+    Click Element    //input[@id='dt_barrier_1_input']
+    Wait Until Page Contains Element    //input[@id='dt_barrier_1_input']    10
+    Press Keys   //input[@id='dt_barrier_1_input']    CTRL+A+DEL    100
+    # Payout: 10 USD
+    Wait Until Page Contains Element    //input[@id='dc_payout_toggle_item']
+    Click Element    //input[@id='dc_payout_toggle_item']
+    Wait Until Page Contains Element    //input[@id='dt_amount_input']    10
+    Press Keys   //input[@id='dt_amount_input']    CTRL+A+DEL    10
+
+    # error message should appear
+    # Lower button should be disabled
 
 
 # Task 5 Check Multiplier Contract Parameter

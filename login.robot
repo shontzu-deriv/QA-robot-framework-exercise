@@ -4,7 +4,7 @@ Library  SeleniumLibrary
 *** Variables ***
 ${login_button}    //button[@id='dt_login_button']
 
-${select_symbols}    //div[@class='cq-menu-btn']
+${select_symbols}    //div[@class='cq-symbol-select-btn']
 ${synthetic_indices}  //div[contains(@class,'sc-mcd__filter__item') and contains(.,'Synthetic Indices')]  
 ${volatility_10_1s_Index}    //*[contains(@class,'1HZ10V')]
 ${rise_button}    //button[@id='dt_purchase_call_button']
@@ -19,8 +19,9 @@ ${lower_button}    //button[@id='dt_purchase_put_button']
 *** Keywords ***
 # Task 1 Login To Deriv
 Login To Deriv
+
     Open Browser  https://app.deriv.com/  chrome
-    Set Selenium Speed    0.05
+    Set Selenium Speed    0.07
     Maximize Browser Window
     Wait Until Page Contains Element    dt_login_button    30
     Wait Until Element Is Enabled    ${rise_button}    30
@@ -31,7 +32,8 @@ Login To Deriv
     Click Element    //button[@type='submit']
     
 Switch To Demo
-    Wait Until Page Contains Element    ${rise_button}    30 
+    Wait Until Page Does Not Contain Element    //*[@aria-label="Loading interface..."]    20
+    Wait Until Page Contains Element    ${rise_button}    30
     Click Element    //div[@id='dt_core_account-info_acc-info']
     # todo1: DEMO (VRTC) should NOT be visible --> meaning currently in REAL acc
     Wait Until Page Contains Element    //div[contains(@id,"dt_CR")]    30  
@@ -42,8 +44,9 @@ Switch To Demo
 
 # Task 2 Buy Rise Contract
 Buy Rise Contract
+    Wait Until Page Does Not Contain Element    //*[@aria-label="Loading interface..."]    20
     # volatility 10 (1s) Index
-    Wait Until Element Is Enabled    ${select_symbols}    30
+    Wait Until Element Is Enabled    //div[@class='cq-menu-btn']    1200
     Click Element    ${select_symbols}
     Wait Until Element Is Enabled    ${synthetic_indices}    30
     Click Element    ${synthetic_indices}
@@ -58,8 +61,9 @@ Buy Rise Contract
     
 # Task 3 Buy Lower Contract
 Buy Lower Contract
+    Wait Until Page Does Not Contain Element    //*[@class="chart-container__loader"]    20
     # AUD/USD
-    Wait Until Element Is Enabled    ${select_symbols}    30
+    Wait Until Element Is Enabled    //div[@class='cq-menu-btn']    1200
     Click Element    ${select_symbols}
     Wait Until Element Is Enabled    ${forex}    30
     Click Element    ${forex}
@@ -76,18 +80,22 @@ Buy Lower Contract
     Press Keys   //input[@class='dc-input__field']    CTRL+A+DEL    4
 
     # Payout: 15.50 USD
-    Wait Until Page Contains Element    //button[@id='dc_payout_toggle_item']    10
-    Click Element    //button[@id='dc_payout_toggle_item']
-    Click Element       //input[@id='dt_amount_input']
-    Wait Until Page Contains Element    //button[@id='dc_payout_toggle_item']    10
-    Press Keys   //button[@id='dc_payout_toggle_item']    CTRL+A+DEL    15.50
+    Wait Until Page Contains Element    //input[@id='dt_amount_input']    10
+    Press Keys   //input[@id='dt_amount_input']    CTRL+A+DEL    15.50
 
     # Lower
-    Wait Until Element Is Enabled    ${lower_button}    30
-    Click Element    ${lower_button}
+    # Wait Until Element Is Enabled    ${lower_button}    30
+    # Click Element    ${lower_button}
 
 # Task 4 Check Relative Barrier
-# Check Relative Barrier
+Check Relative Barrier
+# Underlying: AUD/USD
+# Contract: Lower
+# Duration: 2 Days
+# Barrier (to generate error)
+# Payout: 10 USD
+# error message should appear
+# Lower button should be disabled
 
 
 # Task 5 Check Multiplier Contract Parameter
@@ -100,5 +108,5 @@ Start Test
     Switch To Demo
     Buy Rise Contract
     Buy Lower Contract
-    # Check Relative Barrier
+    Check Relative Barrier
     # Check Multiplier Contract Parameter

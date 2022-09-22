@@ -28,7 +28,7 @@ Login To Deriv
     Click Element    dt_login_button
     Wait Until Page Contains Element    //input[@type='email']    10
     Input Text    //input[@type='email']   shon.tzu@besquare.com.my
-    Input Password    //input[@type='password']    Password140114!
+    Input Password    //input[@type='password']    falsePassword
     Click Element    //button[@type='submit']
     
 Switch To Demo

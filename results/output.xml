@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220923 06:05:28.021" rpa="false" schemaversion="3">
+<suite id="s1" name="RF" source="/home/keoy/besquare/QA/RF">
+<suite id="s1-s1" name="API" source="/home/keoy/besquare/QA/RF/API.robot">
+<test id="s1-s1-t1" name="TC05 List Tokens" line="131">
+<kw name="List Of Tokens">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//tr/td/span[contains(.,'Read')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220923 06:05:28.880" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20220923 06:05:28.887" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20220923 06:05:28.877" endtime="20220923 06:05:28.892"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//tr/td/span[contains(.,'Read and Trade')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20220923 06:05:28.894" endtime="20220923 06:05:28.894"/>
+</kw>
+<status status="FAIL" starttime="20220923 06:05:28.876" endtime="20220923 06:05:28.896"/>
+</kw>
+<status status="FAIL" starttime="20220923 06:05:28.867" endtime="20220923 06:05:28.898">No browser is open.</status>
+</test>
+<status status="FAIL" starttime="20220923 06:05:28.247" endtime="20220923 06:05:28.901"/>
+</suite>
+<status status="FAIL" starttime="20220923 06:05:28.055" endtime="20220923 06:05:28.908"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="RF">RF</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="API">RF.API</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

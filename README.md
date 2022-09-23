@@ -1,3 +1,3 @@
-Test Cases for Deriv.com [Login Page](https://app.deriv.com/) 
+Test Cases for [closing account](https://app.deriv.com/account/closing-account) 
  
-```robot login.robot```
+```robot account.robot```

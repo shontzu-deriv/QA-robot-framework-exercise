@@ -1,109 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220923 02:14:29.272" rpa="false" schemaversion="3">
-<suite id="s1" name="API" source="/home/keoy/besquare/QA/RF/API.robot">
-<test id="s1-t1" name="Start Test" line="55">
-<kw name="Login To Deriv">
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220923 08:16:50.503" rpa="false" schemaversion="3">
+<suite id="s1" name="Account" source="/home/keoy/besquare/QA/RF/account.robot">
+<test id="s1-t1" name="TC01 - Log in" line="59">
+<kw name="Open Deriv.com">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>https://app.deriv.com/account/api-token</arg>
+<arg>https://app.deriv.com/account/closing-account</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220923 02:14:29.617" level="INFO">Opening browser 'chrome' to base url 'https://app.deriv.com/account/api-token'.</msg>
-<status status="PASS" starttime="20220923 02:14:29.616" endtime="20220923 02:14:35.130"/>
+<msg timestamp="20220923 08:16:50.835" level="INFO">Opening browser 'chrome' to base url 'https://app.deriv.com/account/closing-account'.</msg>
+<status status="PASS" starttime="20220923 08:16:50.834" endtime="20220923 08:16:58.638"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>0.07</arg>
+<arg>0.2</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20220923 02:14:35.131" endtime="20220923 02:14:35.132"/>
+<status status="PASS" starttime="20220923 08:16:58.638" endtime="20220923 08:16:58.639"/>
 </kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>${submit_button}</arg>
-<arg>30</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220923 02:14:35.133" endtime="20220923 02:14:35.233"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220923 08:16:58.639" endtime="20220923 08:16:58.946"/>
 </kw>
+<status status="PASS" starttime="20220923 08:16:50.834" endtime="20220923 08:16:58.946"/>
+</kw>
+<kw name="Login">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
 <arg>//input[@type='email']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220923 02:14:35.233" endtime="20220923 02:14:38.719"/>
+<status status="PASS" starttime="20220923 08:16:58.947" endtime="20220923 08:16:59.163"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>//input[@type='email']</arg>
 <arg>shon.tzu@besquare.com.my</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:38.720" level="INFO">Typing text 'shon.tzu@besquare.com.my' into text field '//input[@type='email']'.</msg>
-<status status="PASS" starttime="20220923 02:14:38.720" endtime="20220923 02:14:39.069"/>
+<msg timestamp="20220923 08:16:59.163" level="INFO">Typing text 'shon.tzu@besquare.com.my' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20220923 08:16:59.163" endtime="20220923 08:16:59.951"/>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <arg>//input[@type='password']</arg>
 <arg>Password140114!</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:39.069" level="INFO">Typing password into text field '//input[@type='password']'.</msg>
-<msg timestamp="20220923 02:14:39.255" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20220923 02:14:39.390" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20220923 02:14:39.069" endtime="20220923 02:14:39.390"/>
+<msg timestamp="20220923 08:16:59.951" level="INFO">Typing password into text field '//input[@type='password']'.</msg>
+<msg timestamp="20220923 08:17:00.411" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220923 08:17:00.677" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220923 08:16:59.951" endtime="20220923 08:17:00.678"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${submit_button}</arg>
+<arg>//button[@type='submit']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:39.392" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
-<status status="PASS" starttime="20220923 02:14:39.391" endtime="20220923 02:14:42.608"/>
+<msg timestamp="20220923 08:17:00.679" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220923 08:17:00.678" endtime="20220923 08:17:03.356"/>
 </kw>
-<status status="PASS" starttime="20220923 02:14:29.615" endtime="20220923 02:14:42.609"/>
+<status status="PASS" starttime="20220923 08:16:58.947" endtime="20220923 08:17:03.357"/>
 </kw>
-<kw name="Read Token">
+<status status="PASS" starttime="20220923 08:16:50.832" endtime="20220923 08:17:03.357"/>
+</test>
+<test id="s1-t2" name="TC02 - Close Account" line="63">
+<kw name="Close Account">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>${read_checkbox}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220923 02:14:42.610" endtime="20220923 02:14:43.418"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${read_checkbox}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:43.419" level="INFO">Clicking element '//*[contains(@class,'dc-text') and contains(.,'Read')]'.</msg>
-<status status="PASS" starttime="20220923 02:14:43.418" endtime="20220923 02:14:43.787"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>${token_name_input}</arg>
+<arg>//button[@type='submit' and contains(@class,'closing-account__button--close-account')]</arg>
 <arg>30</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20220923 02:14:43.787" endtime="20220923 02:14:43.886"/>
+<status status="PASS" starttime="20220923 08:17:03.363" endtime="20220923 08:17:04.458"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${token_name_input}</arg>
+<arg>//button[@type='submit' and contains(@class,'closing-account__button--close-account')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:43.888" level="INFO">Clicking element '//input[@name='token_name']'.</msg>
-<status status="PASS" starttime="20220923 02:14:43.887" endtime="20220923 02:14:44.104"/>
+<msg timestamp="20220923 08:17:04.458" level="INFO">Clicking element '//button[@type='submit' and contains(@class,'closing-account__button--close-account')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:04.458" endtime="20220923 08:17:05.149"/>
 </kw>
-<kw name="Press Keys" library="SeleniumLibrary">
-<arg>${token_name_input}</arg>
-<arg>Read</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20220923 02:14:44.106" level="INFO">Sending key(s) ('Read',) to //input[@name='token_name'] element.</msg>
-<msg timestamp="20220923 02:14:44.533" level="INFO">Sending keys Read</msg>
-<status status="PASS" starttime="20220923 02:14:44.104" endtime="20220923 02:14:44.899"/>
+<status status="PASS" starttime="20220923 08:17:03.362" endtime="20220923 08:17:05.149"/>
+</kw>
+<kw name="Select Reason">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220923 08:17:08.152" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220923 08:17:05.150" endtime="20220923 08:17:08.152"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${submit_button}</arg>
+<arg>//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms aren’t user-friendly.')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220923 02:14:44.901" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
-<status status="PASS" starttime="20220923 02:14:44.899" endtime="20220923 02:14:45.303"/>
+<msg timestamp="20220923 08:17:08.153" level="INFO">Clicking element '//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms aren’t user-friendly.')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:08.152" endtime="20220923 08:17:08.665"/>
 </kw>
-<status status="PASS" starttime="20220923 02:14:42.609" endtime="20220923 02:14:45.303"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'I prefer another trading website.')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:08.666" level="INFO">Clicking element '//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'I prefer another trading website.')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:08.665" endtime="20220923 08:17:09.165"/>
 </kw>
-<status status="PASS" starttime="20220923 02:14:29.613" endtime="20220923 02:14:45.307"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms lack key features or functionality.')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:09.166" level="INFO">Clicking element '//form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms lack key features or functionality.')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:09.166" endtime="20220923 08:17:09.668"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:05.150" endtime="20220923 08:17:09.668"/>
+</kw>
+<kw name="Other Feedback">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${other_trading_platforms_textarea}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:09.669" endtime="20220923 08:17:10.330"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${do_to_improve_textarea}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:10.330" endtime="20220923 08:17:10.984"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${other_trading_platforms_textarea}</arg>
+<arg>competitor name</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:10.986" level="INFO">Typing text 'competitor name' into text field '//form/div/textarea[@placeholder='If you don’t mind sharing, which other trading platforms do you use?']'.</msg>
+<status status="PASS" starttime="20220923 08:17:10.985" endtime="20220923 08:17:11.899"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${do_to_improve_textarea}</arg>
+<arg>fix the lag</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:11.900" level="INFO">Typing text 'fix the lag' into text field '//form/div/textarea[@placeholder='What could we do to improve?']'.</msg>
+<status status="PASS" starttime="20220923 08:17:11.899" endtime="20220923 08:17:12.727"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${submit_feedback_btn}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:12.728" endtime="20220923 08:17:13.374"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${submit_feedback_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:13.375" level="INFO">Clicking element '//form/div/div/button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220923 08:17:13.374" endtime="20220923 08:17:14.019"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:09.668" endtime="20220923 08:17:14.020"/>
+</kw>
+<kw name="Confirm Close Account">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@id='modal_root']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220923 08:17:14.021" endtime="20220923 08:17:14.484"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${cancel_close_acc_btn}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:14.484" endtime="20220923 08:17:15.142"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cancel_close_acc_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:15.143" level="INFO">Clicking element '//button[contains(@class,'dc-btn--secondary') and contains(*,'Go Back')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:15.143" endtime="20220923 08:17:15.615"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${submit_feedback_btn}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:15.615" endtime="20220923 08:17:16.249"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${submit_feedback_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:16.250" level="INFO">Clicking element '//form/div/div/button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220923 08:17:16.249" endtime="20220923 08:17:16.775"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@id='modal_root']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220923 08:17:16.775" endtime="20220923 08:17:17.217"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${confirm_close_acc_btn}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220923 08:17:17.218" endtime="20220923 08:17:17.881"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${confirm_close_acc_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:17.882" level="INFO">Clicking element '//button[contains(@class,'dc-btn--primary') and contains (*,'Close account')]'.</msg>
+<status status="PASS" starttime="20220923 08:17:17.882" endtime="20220923 08:17:18.434"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220923 08:17:28.437" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20220923 08:17:18.435" endtime="20220923 08:17:28.437"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:14.020" endtime="20220923 08:17:28.438"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:03.360" endtime="20220923 08:17:28.439"/>
 </test>
-<status status="PASS" starttime="20220923 02:14:29.274" endtime="20220923 02:14:45.311"/>
+<test id="s1-t3" name="TC03 - Check if can log in" line="69">
+<kw name="Relogin">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//button[@id='dm-nav-login-button']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220923 08:17:28.442" endtime="20220923 08:17:32.452"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@id='dm-nav-login-button']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:32.453" level="INFO">Clicking element '//button[@id='dm-nav-login-button']'.</msg>
+<status status="PASS" starttime="20220923 08:17:32.453" endtime="20220923 08:17:34.698"/>
+</kw>
+<kw name="Login">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//input[@type='email']</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220923 08:17:34.698" endtime="20220923 08:17:34.909"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@type='email']</arg>
+<arg>shon.tzu@besquare.com.my</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:34.910" level="INFO">Typing text 'shon.tzu@besquare.com.my' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20220923 08:17:34.910" endtime="20220923 08:17:35.658"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>//input[@type='password']</arg>
+<arg>Password140114!</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:35.659" level="INFO">Typing password into text field '//input[@type='password']'.</msg>
+<msg timestamp="20220923 08:17:36.116" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220923 08:17:36.401" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220923 08:17:35.658" endtime="20220923 08:17:36.401"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220923 08:17:36.402" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220923 08:17:36.402" endtime="20220923 08:17:37.842"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:34.698" endtime="20220923 08:17:37.842"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:28.441" endtime="20220923 08:17:37.842"/>
+</kw>
+<status status="PASS" starttime="20220923 08:17:28.440" endtime="20220923 08:17:37.842"/>
+</test>
+<status status="PASS" starttime="20220923 08:16:50.504" endtime="20220923 08:17:37.844"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="API">API</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Account">Account</stat>
 </suite>
 </statistics>
 <errors>

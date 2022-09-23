@@ -2,6 +2,10 @@
 Library  SeleniumLibrary
 
 *** Variables ***
+${short_placeholder_text}    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+${long_placeholder_text}    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada congue interdum. Praesent in imperdiet magna, id congue ipsum. Nunc tempus sapien sed dolor sollicitudin sodales. Quisque gravida purus eros.
+
+
 ${rise_button}    //button[@id='dt_purchase_call_button']
 ${other_trading_platforms_textarea}    //form/div/textarea[@placeholder='If you don’t mind sharing, which other trading platforms do you use?']
 ${do_to_improve_textarea}    //form/div/textarea[@placeholder='What could we do to improve?']
@@ -24,18 +28,21 @@ Fill Login Form
 Close Account
     Wait Until Page Contains Element    //button[@type='submit' and contains(@class,'closing-account__button--close-account')]    30
     Click Element    //button[@type='submit' and contains(@class,'closing-account__button--close-account')]
-
-Select Reason
-    Sleep    3s
+Checkbox Validation
+    Input Text    ${other_trading_platforms_textarea}    ${short_placeholder_text}
+    Page Should Contain Element    //p[contains(.,'Please select at least one reason')]
     Click Element    //form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms aren’t user-friendly.')]
     Click Element    //form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'I prefer another trading website.')]
     Click Element    //form/label/span[contains(@class,'dc-checkbox__label') and contains(.,'The platforms lack key features or functionality.')]
-    
-Other Feedback
+    Page Should Not Contain    //p[contains(.,'Please select at least one reason')]
+    Press Keys    ${other_trading_platforms_textarea}    CTRL+A+DEL
+
+Textarea Validation
     Wait Until Element Is Enabled    ${other_trading_platforms_textarea}
     Wait Until Element Is Enabled    ${do_to_improve_textarea}
-    Input Text    ${other_trading_platforms_textarea}    competitor name
-    Input Text    ${do_to_improve_textarea}    fix the lag
+    Press Keys    ${other_trading_platforms_textarea}    CTRL+A+DEL    ${long_placeholder_text}
+    Press Keys    ${other_trading_platforms_textarea}    CTRL+A+DEL    ${short_placeholder_text}
+    Press Keys    ${do_to_improve_textarea}    ${short_placeholder_text}
     Wait Until Element Is Enabled    ${submit_feedback_btn}
     Click Element    ${submit_feedback_btn}
 
@@ -61,11 +68,12 @@ TC01 - Log in
     Open Deriv.com
     Fill Login Form
 
-
 TC02 - Close Account
     Close Account
-    Select Reason
-    Other Feedback
+    
+TC03 - Form validation to ensure it is properly filled
+    Checkbox Validation
+    Textarea Validation
     Confirm Close Account
 
 TC03 - Try to log in again
